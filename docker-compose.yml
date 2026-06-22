@@ -2,20 +2,30 @@ services:
   api:
     build:
       context: ./src/api
+    restart: unless-stopped
     ports:
-      - "8000:8000"
+      - "${API_PORT:-8000}:8000"
     env_file:
       - path: .env
         required: false
+    environment:
+      RESEARCHPILOT_DATA_DIR: /app/data
+      RESEARCHPILOT_DB_PATH: /app/data/researchpilot.db
+      RESEARCHPILOT_REPORTS_DIR: /app/data/reports
+      RESEARCHPILOT_CACHE_DIR: /app/data/cache
+      RESEARCHPILOT_CHROMA_DIR: /app/data/chroma
     volumes:
       - ./data:/app/data
 
   web:
     build:
       context: ./src/web
+      args:
+        NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL:-http://localhost:8000}
+    restart: unless-stopped
     ports:
-      - "3000:3000"
+      - "${WEB_PORT:-3000}:3000"
     environment:
-      NEXT_PUBLIC_API_BASE_URL: http://localhost:8000
+      NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL:-http://localhost:8000}
     depends_on:
       - api

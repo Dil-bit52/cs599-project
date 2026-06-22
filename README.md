@@ -167,6 +167,8 @@ http://localhost:3000
 docker compose up --build
 ```
 
+服务器部署说明见 [docs/deployment.md](docs/deployment.md)。在云服务器上需要把 `.env` 中的 `NEXT_PUBLIC_API_BASE_URL` 设置为公网 API 地址，例如 `http://60.205.203.170:8000`，并重新构建前端镜像。
+
 ## API 概览
 
 ```http
