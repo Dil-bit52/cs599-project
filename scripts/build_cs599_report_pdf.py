@@ -763,6 +763,7 @@ def cover_story() -> list:
         ["专业", "软件工程"],
         ["指导教师", "戚欣"],
         ["提交日期", "2026 年 6 月 22 日"],
+        ["部署地址", "http://60.205.203.170:3000"],
     ]
     table = Table(
         [[paragraph(k, "table"), paragraph(v, "table")] for k, v in metadata],
