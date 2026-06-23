@@ -236,25 +236,6 @@ npm run build
 - 删除任务时清理关联记录
 - 删除任务时清理本地 RAG 索引
 
-## 报告生成
-
-最终报告文件位于：
-
-```text
-docs/CS599_大作业报告.pdf
-```
-
-如果修改了 `docs/CS599_大作业报告.md` 中的姓名、学号、专业或正文内容，可以重新生成 PDF：
-
-```bash
-cd src/api
-.venv\Scripts\activate
-pip install -r requirements-optional.txt
-cd ..\..
-python scripts/build_cs599_report_pdf.py
-```
-
-生成脚本会为 PDF 写入导航书签和目录页。
 
 ## 项目状态
 
@@ -273,5 +254,3 @@ python scripts/build_cs599_report_pdf.py
 - 本项目使用 OpenAlex、arXiv 公开元数据接口作为论文检索来源。
 - 本项目引用的开源框架包括 FastAPI、Next.js、React、Tailwind CSS、OpenAI Python SDK、pytest、Chroma、MCP 等。
 - API Key 必须通过环境变量配置，不得硬编码在代码、README 或报告中。
-- 如果仓库为 Private Repository，请添加 `qxr777` 为 Collaborator。
-- 如果仓库为 Public Repository，请保留 LICENSE 文件。
