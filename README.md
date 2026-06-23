@@ -50,8 +50,6 @@ cs599-project/
 │   ├── architecture.md           # 图文架构说明
 │   ├── api_spec.md               # API Spec
 │   └── test_report.md            # 测试说明
-├── scripts/
-│   └── build_cs599_report_pdf.py # 报告 PDF 生成脚本
 ├── src/
 │   ├── api/
 │   │   ├── app/
